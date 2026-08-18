@@ -62,7 +62,8 @@ procedure Tests is
       Assert (Is_Close (Out_Comp_6(0), (Re => 3.0, Im => 0.0)), "DC mismatch N=6");
       Put_Line("     PASS");
       Put_Line("  3.2 Assert periodicity/harmonics in N=6 (Disproving division remainder bugs)");
-      Assert (Is_Close (Out_Comp_6(2), (Re => 3.0, Im => 0.0)), "Harmonic mismatch N=6");
+      -- FIXED: A period-2 signal [1,0,1,0,1,0] in an N=6 array has its harmonic peak at bin k = N/2 = 3.
+      Assert (Is_Close (Out_Comp_6(3), (Re => 3.0, Im => 0.0)), "Harmonic mismatch N=6");
       Put_Line("     PASS");
 
       -- TEST 4 - Boundary & Error Rejection
